@@ -49,6 +49,7 @@ export default class DateTimePicker extends Component {
               addMonth={this.props.addMonth}
               addYear={this.props.addYear}
               daysOfWeekDisabled={this.props.daysOfWeekDisabled}
+              iconStyle={this.props.iconStyle}
               maxDate={this.props.maxDate}
               minDate={this.props.minDate}
               selectedDate={this.props.selectedDate}
@@ -74,6 +75,7 @@ export default class DateTimePicker extends Component {
         <DateTimePickerTime
               addHour={this.props.addHour}
               addMinute={this.props.addMinute}
+              iconStyle={this.props.iconStyle}
               mode={this.props.mode}
               selectedDate={this.props.selectedDate}
               setSelectedHour={this.props.setSelectedHour}
@@ -92,7 +94,7 @@ export default class DateTimePicker extends Component {
       return this.props.mode === Constants.MODE_DATETIME ?
           (
               <li>
-                <span className="btn picker-switch" onClick={this.props.togglePicker} style={{width: "100%"}} ><span className={classnames("glyphicon", this.props.showTimePicker ? "glyphicon-calendar" : "glyphicon-time")} /></span>
+                <span className="btn picker-switch" onClick={this.props.togglePicker} style={{width: "100%"}} ><span className={classnames(this.props.iconStyle.class, this.props.showTimePicker ? this.props.iconStyle.calendar : this.props.iconStyle.time)} /></span>
               </li>
           ) :
           null;

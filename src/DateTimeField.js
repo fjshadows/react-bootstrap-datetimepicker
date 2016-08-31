@@ -13,6 +13,15 @@ export default class DateTimeField extends Component {
     daysOfWeekDisabled: [],
     size: Constants.SIZE_MEDIUM,
     mode: Constants.MODE_DATETIME,
+    iconStyle: {
+      class: "glyphicon",
+      time: "glyphicon-time",
+      calendar: "glyphicon-calendar",
+      up: "glyphicon-chevron-up",
+      down: "glyphicon-chevron-down",
+      right: "glyphicon-chevron-right",
+      left: "glyphicon-chevron-left"
+    }
     zIndex: 999,
     onChange: (x) => {
       console.log(x);
@@ -56,7 +65,7 @@ export default class DateTimeField extends Component {
       showDatePicker: this.props.mode !== Constants.MODE_TIME,
       showTimePicker: this.props.mode === Constants.MODE_TIME,
       inputFormat: this.resolvePropsInputFormat(),
-      buttonIcon: this.props.mode === Constants.MODE_TIME ? "glyphicon-time" : "glyphicon-calendar",
+      buttonIcon: this.props.mode === Constants.MODE_TIME ? this.props.iconStyle.time : this.props.iconStyle.calendar,
       widgetStyle: {
         display: "block",
         position: "absolute",
@@ -349,6 +358,7 @@ export default class DateTimeField extends Component {
                   addMonth={this.addMonth}
                   addYear={this.addYear}
                   daysOfWeekDisabled={this.props.daysOfWeekDisabled}
+                  iconStyle={this.props.iconStyle}
                   maxDate={this.props.maxDate}
                   minDate={this.props.minDate}
                   mode={this.props.mode}
@@ -377,7 +387,7 @@ export default class DateTimeField extends Component {
             <div className={"input-group date " + this.size()} ref="datetimepicker">
               <input className="form-control" onChange={this.onChange} type="text" value={this.state.inputValue} {...this.props.inputProps}/>
               <span className="input-group-addon" onBlur={this.onBlur} onClick={this.onClick} ref="dtpbutton">
-                <span className={classnames("glyphicon", this.state.buttonIcon)} />
+                <span className={classnames(this.props.iconStyle.class, this.state.buttonIcon)} />
               </span>
             </div>
           </div>

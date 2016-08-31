@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from "react";
+import classnames from "classnames";
+
 import Constants from "./Constants.js";
 
 export default class DateTimePickerMinutes extends Component {
@@ -13,7 +15,9 @@ export default class DateTimePickerMinutes extends Component {
         (
             <ul className="list-unstyled">
               <li>
-                <span className="btn picker-switch" onClick={this.props.onSwitch} style={{width: "100%"}}><span className="glyphicon glyphicon-time" /></span>
+                <span className="btn picker-switch" onClick={this.props.onSwitch} style={{width: "100%"}}>
+                  <span className={classnames(this.props.iconStyle.class, this.props.iconStyle.time)} />
+                </span>
               </li>
             </ul>
         ) :

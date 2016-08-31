@@ -1,10 +1,3 @@
-⚠️ [DEPRECATED] react-bootstrap-datetimepicker
-===============================
-
-⚠️ This repository is not maintained anymore, please refer to this fork : https://github.com/YouCanBookMe/react-datetime
-
-This project is a port of https://github.com/Eonasdan/bootstrap-datetimepicker for React.js
-
 Usage
 ===============================
 
@@ -46,6 +39,16 @@ DateTimeField
 | **maxDate** | moment | undefined | The latest date allowed for entry in the calendar view. |
 | **mode** | string | undefined | Allows to selectively display only the time picker ('time') or the date picker ('date') |
 | **defaultText** | string | {dateTime} | Sets the initial value. Could be an empty string, or helper text. |
+| **iconStyle** | object | 
+    {
+      class: "glyphicon",
+      time: "glyphicon-time",
+      calendar: "glyphicon-calendar",
+      up: "glyphicon-chevron-up",
+      down: "glyphicon-chevron-down",
+      right: "glyphicon-chevron-right",
+      left: "glyphicon-chevron-left"
+    } | Sets the initial value. Could be an empty string, or helper text. |
 
 Update Warning
 ===============================
