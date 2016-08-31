@@ -2058,7 +2058,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    this.renderMinutes = function () {
-	      console.log(_this.props);
 	      if (_this.state.minutesDisplayed) {
 	        return _react2["default"].createElement(_DateTimePickerMinutes2["default"], _extends({}, _this.props, { onSwitch: _this.goBack }));
 	      } else {

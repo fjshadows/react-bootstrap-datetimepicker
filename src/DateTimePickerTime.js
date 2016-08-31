@@ -42,7 +42,6 @@ export default class DateTimePickerTime extends Component {
   }
 
   renderMinutes = () => {
-    console.log(this.props)
     if (this.state.minutesDisplayed) {
       return <DateTimePickerMinutes {...this.props} onSwitch={this.goBack} />;
     } else {
