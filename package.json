@@ -2,7 +2,7 @@
   "name": "react-bootstrap-datetimepicker-custom-icons",
   "version": "0.0.23",
   "description": "A bootstrap datetime picker component for React.js",
-  "homepage": "http://dev.quri.com/react-bootstrap-datetimepicker/",
+  "homepage": "http://github.com/fjshadows/react-bootstrap-datetimepicker",
   "repository": {
     "type": "git",
     "url": "http://github.com/fjshadows/react-bootstrap-datetimepicker"
@@ -23,7 +23,14 @@
     "datetimepicker",
     "datetime"
   ],
-  "author": "Loïc CHOLLIER <loic@chollier.com>",
+  "author": {
+    "name": "Nikita Zolotuhin",
+    "email": "fjshadows@ya.ru"
+  },
+  "contributors": [{
+    "name": "Nikita Zolotuhin",
+    "email": "fjshadows@ya.ru"
+  }],
   "license": "MIT",
   "peerDependencies": {
     "react": ">=0.14"
