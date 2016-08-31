@@ -2011,6 +2011,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames = __webpack_require__(40);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	var _DateTimePickerMinutes = __webpack_require__(50);
 
 	var _DateTimePickerMinutes2 = _interopRequireDefault(_DateTimePickerMinutes);
@@ -2093,7 +2097,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  _react2["default"].createElement(
 	                    "a",
 	                    { className: "btn", onClick: _this.props.addHour },
-	                    _react2["default"].createElement("span", { className: classnames(_this.props.iconStyle["class"], _this.props.iconStyle.up) })
+	                    _react2["default"].createElement("span", { className: (0, _classnames2["default"])(_this.props.iconStyle["class"], _this.props.iconStyle.up) })
 	                  )
 	                ),
 	                _react2["default"].createElement("td", { className: "separator" }),
@@ -2103,7 +2107,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  _react2["default"].createElement(
 	                    "a",
 	                    { className: "btn", onClick: _this.props.addMinute },
-	                    _react2["default"].createElement("span", { className: classnames(_this.props.iconStyle["class"], _this.props.iconStyle.up) })
+	                    _react2["default"].createElement("span", { className: (0, _classnames2["default"])(_this.props.iconStyle["class"], _this.props.iconStyle.up) })
 	                  )
 	                ),
 	                _react2["default"].createElement("td", { className: "separator" })
@@ -2154,7 +2158,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  _react2["default"].createElement(
 	                    "a",
 	                    { className: "btn", onClick: _this.props.subtractHour },
-	                    _react2["default"].createElement("span", { className: classnames(_this.props.iconStyle["class"], _this.props.iconStyle.down) })
+	                    _react2["default"].createElement("span", { className: (0, _classnames2["default"])(_this.props.iconStyle["class"], _this.props.iconStyle.down) })
 	                  )
 	                ),
 	                _react2["default"].createElement("td", { className: "separator" }),
@@ -2164,7 +2168,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  _react2["default"].createElement(
 	                    "a",
 	                    { className: "btn", onClick: _this.props.subtractMinute },
-	                    _react2["default"].createElement("span", { className: classnames(_this.props.iconStyle["class"], _this.props.iconStyle.down) })
+	                    _react2["default"].createElement("span", { className: (0, _classnames2["default"])(_this.props.iconStyle["class"], _this.props.iconStyle.down) })
 	                  )
 	                ),
 	                _react2["default"].createElement("td", { className: "separator" })
