@@ -21,7 +21,7 @@ export default class DateTimeField extends Component {
       down: "glyphicon-chevron-down",
       right: "glyphicon-chevron-right",
       left: "glyphicon-chevron-left"
-    }
+    },
     zIndex: 999,
     onChange: (x) => {
       console.log(x);

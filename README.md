@@ -8,12 +8,12 @@ Usage
 
 Installation :
 ```
-npm install react-bootstrap-datetimepicker
+npm install react-bootstrap-datetimepicker-custom-icons
 ```
 
 Then
 ```javascript
-var DateTimeField = require('react-bootstrap-datetimepicker');
+var DateTimeField = require('react-bootstrap-datetimepicker-custom-icons');
 
 ...
 
@@ -55,7 +55,7 @@ var DateTimeField = require('react-bootstrap-datetimepicker').DateTimeField;
 ```
 instead use :
 ```javascript
-var DateTimeField = require('react-bootstrap-datetimepicker');
+var DateTimeField = require('react-bootstrap-datetimepicker-custom-icons');
 ```
 
 Contributions

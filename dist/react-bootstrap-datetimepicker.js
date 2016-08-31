@@ -127,7 +127,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      showDatePicker: this.props.mode !== _ConstantsJs2["default"].MODE_TIME,
 	      showTimePicker: this.props.mode === _ConstantsJs2["default"].MODE_TIME,
 	      inputFormat: this.resolvePropsInputFormat(),
-	      buttonIcon: this.props.mode === _ConstantsJs2["default"].MODE_TIME ? "glyphicon-time" : "glyphicon-calendar",
+	      buttonIcon: this.props.mode === _ConstantsJs2["default"].MODE_TIME ? this.props.iconStyle.time : this.props.iconStyle.calendar,
 	      widgetStyle: {
 	        display: "block",
 	        position: "absolute",
@@ -401,10 +401,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        bottom: 0,
 	        left: 0,
 	        right: 0,
-	        zIndex: "999"
+	        zIndex: "" + _this.props.zIndex
 	      };
 	      if (_this.state.showPicker) {
-	        return _react2["default"].createElement("div", { onClick: _this.closePicker, style: styles });
+	        return _react2["default"].createElement("div", { className: "bootstrap-datetimepicker-overlay", onClick: _this.closePicker, style: styles });
 	      } else {
 	        return _react2["default"].createElement("span", null);
 	      }
@@ -425,6 +425,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          addMonth: this.addMonth,
 	          addYear: this.addYear,
 	          daysOfWeekDisabled: this.props.daysOfWeekDisabled,
+	          iconStyle: this.props.iconStyle,
 	          maxDate: this.props.maxDate,
 	          minDate: this.props.minDate,
 	          mode: this.props.mode,
@@ -457,7 +458,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _react2["default"].createElement(
 	            "span",
 	            { className: "input-group-addon", onBlur: this.onBlur, onClick: this.onClick, ref: "dtpbutton" },
-	            _react2["default"].createElement("span", { className: (0, _classnames2["default"])("glyphicon", this.state.buttonIcon) })
+	            _react2["default"].createElement("span", { className: (0, _classnames2["default"])(this.props.iconStyle["class"], this.state.buttonIcon) })
 	          )
 	        )
 	      );
@@ -472,6 +473,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      daysOfWeekDisabled: [],
 	      size: _ConstantsJs2["default"].SIZE_MEDIUM,
 	      mode: _ConstantsJs2["default"].MODE_DATETIME,
+	      iconStyle: {
+	        "class": "glyphicon",
+	        time: "glyphicon-time",
+	        calendar: "glyphicon-calendar",
+	        up: "glyphicon-chevron-up",
+	        down: "glyphicon-chevron-down",
+	        right: "glyphicon-chevron-right",
+	        left: "glyphicon-chevron-left"
+	      },
+	      zIndex: 999,
 	      onChange: function onChange(x) {
 	        console.log(x);
 	      }
@@ -492,6 +503,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      direction: _react.PropTypes.string,
 	      showToday: _react.PropTypes.bool,
 	      viewMode: _react.PropTypes.string,
+	      zIndex: _react.PropTypes.number,
 	      size: _react.PropTypes.oneOf([_ConstantsJs2["default"].SIZE_SMALL, _ConstantsJs2["default"].SIZE_MEDIUM, _ConstantsJs2["default"].SIZE_LARGE]),
 	      daysOfWeekDisabled: _react.PropTypes.arrayOf(_react.PropTypes.number)
 	    },
@@ -1064,8 +1076,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	  Copyright (c) 2015 Jed Watson.
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
 	  Licensed under the MIT License (MIT), see
 	  http://jedwatson.github.io/classnames
 	*/
@@ -1077,7 +1089,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		var hasOwn = {}.hasOwnProperty;
 
 		function classNames () {
-			var classes = '';
+			var classes = [];
 
 			for (var i = 0; i < arguments.length; i++) {
 				var arg = arguments[i];
@@ -1086,28 +1098,28 @@ return /******/ (function(modules) { // webpackBootstrap
 				var argType = typeof arg;
 
 				if (argType === 'string' || argType === 'number') {
-					classes += ' ' + arg;
+					classes.push(arg);
 				} else if (Array.isArray(arg)) {
-					classes += ' ' + classNames.apply(null, arg);
+					classes.push(classNames.apply(null, arg));
 				} else if (argType === 'object') {
 					for (var key in arg) {
 						if (hasOwn.call(arg, key) && arg[key]) {
-							classes += ' ' + key;
+							classes.push(key);
 						}
 					}
 				}
 			}
 
-			return classes.substr(1);
+			return classes.join(' ');
 		}
 
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
 		} else if (true) {
 			// register as 'classnames', consistent with npm package name
-			!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
-			}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else {
 			window.classNames = classNames;
 		}
@@ -1174,6 +1186,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            addMonth: _this.props.addMonth,
 	            addYear: _this.props.addYear,
 	            daysOfWeekDisabled: _this.props.daysOfWeekDisabled,
+	            iconStyle: _this.props.iconStyle,
 	            maxDate: _this.props.maxDate,
 	            minDate: _this.props.minDate,
 	            selectedDate: _this.props.selectedDate,
@@ -1199,6 +1212,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _react2["default"].createElement(_DateTimePickerTimeJs2["default"], {
 	            addHour: _this.props.addHour,
 	            addMinute: _this.props.addMinute,
+	            iconStyle: _this.props.iconStyle,
 	            mode: _this.props.mode,
 	            selectedDate: _this.props.selectedDate,
 	            setSelectedHour: _this.props.setSelectedHour,
@@ -1219,7 +1233,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _react2["default"].createElement(
 	          "span",
 	          { className: "btn picker-switch", onClick: _this.props.togglePicker, style: { width: "100%" } },
-	          _react2["default"].createElement("span", { className: (0, _classnames2["default"])("glyphicon", _this.props.showTimePicker ? "glyphicon-calendar" : "glyphicon-time") })
+	          _react2["default"].createElement("span", { className: (0, _classnames2["default"])(_this.props.iconStyle["class"], _this.props.showTimePicker ? _this.props.iconStyle.calendar : _this.props.iconStyle.time) })
 	        )
 	      ) : null;
 	    };
@@ -1388,6 +1402,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2["default"].createElement(_DateTimePickerDays2["default"], {
 	          addMonth: _this.props.addMonth,
 	          daysOfWeekDisabled: _this.props.daysOfWeekDisabled,
+	          iconStyle: _this.props.iconStyle,
 	          maxDate: _this.props.maxDate,
 	          minDate: _this.props.minDate,
 	          selectedDate: _this.props.selectedDate,
@@ -1406,6 +1421,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (_this.state.monthsDisplayed) {
 	        return _react2["default"].createElement(_DateTimePickerMonths2["default"], {
 	          addYear: _this.props.addYear,
+	          iconStyle: _this.props.iconStyle,
 	          selectedDate: _this.props.selectedDate,
 	          setViewMonth: _this.setViewMonth,
 	          showYears: _this.showYears,
@@ -1421,6 +1437,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (_this.state.yearsDisplayed) {
 	        return _react2["default"].createElement(_DateTimePickerYears2["default"], {
 	          addDecade: _this.props.addDecade,
+	          iconStyle: _this.props.iconStyle,
 	          selectedDate: _this.props.selectedDate,
 	          setViewYear: _this.setViewYear,
 	          subtractDecade: _this.props.subtractDecade,
@@ -1613,7 +1630,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              _react2["default"].createElement(
 	                "th",
 	                { className: "prev", onClick: this.props.subtractMonth },
-	                _react2["default"].createElement("span", { className: "glyphicon glyphicon-chevron-left" })
+	                _react2["default"].createElement("span", { className: (0, _classnames2["default"])(this.props.iconStyle["class"], this.props.iconStyle.left) })
 	              ),
 	              _react2["default"].createElement(
 	                "th",
@@ -1625,7 +1642,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              _react2["default"].createElement(
 	                "th",
 	                { className: "next", onClick: this.props.addMonth },
-	                _react2["default"].createElement("span", { className: "glyphicon glyphicon-chevron-right" })
+	                _react2["default"].createElement("span", { className: (0, _classnames2["default"])(this.props.iconStyle["class"], this.props.iconStyle.right) })
 	              )
 	            ),
 	            _react2["default"].createElement(
@@ -2041,6 +2058,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    this.renderMinutes = function () {
+	      console.log(_this.props);
 	      if (_this.state.minutesDisplayed) {
 	        return _react2["default"].createElement(_DateTimePickerMinutes2["default"], _extends({}, _this.props, { onSwitch: _this.goBack }));
 	      } else {
@@ -2076,7 +2094,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  _react2["default"].createElement(
 	                    "a",
 	                    { className: "btn", onClick: _this.props.addHour },
-	                    _react2["default"].createElement("span", { className: "glyphicon glyphicon-chevron-up" })
+	                    _react2["default"].createElement("span", { className: classnames(_this.props.iconStyle["class"], _this.props.iconStyle.up) })
 	                  )
 	                ),
 	                _react2["default"].createElement("td", { className: "separator" }),
@@ -2086,7 +2104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  _react2["default"].createElement(
 	                    "a",
 	                    { className: "btn", onClick: _this.props.addMinute },
-	                    _react2["default"].createElement("span", { className: "glyphicon glyphicon-chevron-up" })
+	                    _react2["default"].createElement("span", { className: classnames(_this.props.iconStyle["class"], _this.props.iconStyle.up) })
 	                  )
 	                ),
 	                _react2["default"].createElement("td", { className: "separator" })
@@ -2137,7 +2155,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  _react2["default"].createElement(
 	                    "a",
 	                    { className: "btn", onClick: _this.props.subtractHour },
-	                    _react2["default"].createElement("span", { className: "glyphicon glyphicon-chevron-down" })
+	                    _react2["default"].createElement("span", { className: classnames(_this.props.iconStyle["class"], _this.props.iconStyle.down) })
 	                  )
 	                ),
 	                _react2["default"].createElement("td", { className: "separator" }),
@@ -2147,7 +2165,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  _react2["default"].createElement(
 	                    "a",
 	                    { className: "btn", onClick: _this.props.subtractMinute },
-	                    _react2["default"].createElement("span", { className: "glyphicon glyphicon-chevron-down" })
+	                    _react2["default"].createElement("span", { className: classnames(_this.props.iconStyle["class"], _this.props.iconStyle.down) })
 	                  )
 	                ),
 	                _react2["default"].createElement("td", { className: "separator" })
@@ -2221,6 +2239,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames = __webpack_require__(40);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	var _ConstantsJs = __webpack_require__(51);
 
 	var _ConstantsJs2 = _interopRequireDefault(_ConstantsJs);
@@ -2245,7 +2267,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _react2["default"].createElement(
 	            "span",
 	            { className: "btn picker-switch", onClick: _this.props.onSwitch, style: { width: "100%" } },
-	            _react2["default"].createElement("span", { className: "glyphicon glyphicon-time" })
+	            _react2["default"].createElement("span", { className: (0, _classnames2["default"])(_this.props.iconStyle["class"], _this.props.iconStyle.time) })
 	          )
 	        )
 	      ) : null;
@@ -2397,6 +2419,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames = __webpack_require__(40);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	var _ConstantsJs = __webpack_require__(51);
 
 	var _ConstantsJs2 = _interopRequireDefault(_ConstantsJs);
@@ -2421,7 +2447,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _react2["default"].createElement(
 	            "span",
 	            { className: "btn picker-switch", onClick: _this.props.onSwitch, style: { width: "100%" } },
-	            _react2["default"].createElement("span", { className: "glyphicon glyphicon-time" })
+	            _react2["default"].createElement("span", { className: (0, _classnames2["default"])(_this.props.iconStyle["class"], _this.props.iconStyle.time) })
 	          )
 	        )
 	      ) : null;
